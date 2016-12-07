@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { Row, Col, ProgressBar } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 import MainTitle from '../../common/MainTitle';
 import SearchForm from './SearchForm';
 
 class Header extends Component {
   render() {
-    const now = 60;
-
     return (
       <Row>
         <Col xs={12} sm={6}>

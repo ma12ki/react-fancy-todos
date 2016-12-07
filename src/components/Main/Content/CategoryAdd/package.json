@@ -1,0 +1,6 @@
+{
+  "name": "CategoryAdd",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./CategoryAdd.js"
+}
