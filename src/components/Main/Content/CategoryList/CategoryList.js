@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
+import './CategoryList.css';
+
 class CategoryList extends Component {
   render() {
+    const items = this.props.items;
+    const renderedItems = items.map((item) => {
+      if (item.children) {
+        return (
+          <div>
+            <ListGroupItem href="#">{item.name}</ListGroupItem>
+            <CategoryList items={item.children} />
+          </div>
+        );
+      }
+
+      return <ListGroupItem href="#">{item.name}</ListGroupItem>;
+    });
+
     return (
       <ListGroup>
-        <ListGroupItem href="#" active>Link 1</ListGroupItem>
-        <ListGroupItem href="#">Link 2</ListGroupItem>
-        <ListGroupItem href="#" disabled>Link 3</ListGroupItem>
-        <ListGroupItem>Link 4</ListGroupItem>
-        <ListGroup>
-          <ListGroupItem href="#" active>Link 1</ListGroupItem>
-          <ListGroupItem href="#">Link 2</ListGroupItem>
-          <ListGroupItem href="#" disabled>Link 3</ListGroupItem>
-        </ListGroup>
+        {renderedItems}
       </ListGroup>
     );
   }
