@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, FormControl, Button } from 'react-bootstrap';
 
 import CategoryList from './CategoryList';
 
@@ -39,12 +39,12 @@ class Content extends Component {
         <Col xs={12} sm={8}>
           <Row>
             <Col xs={12}>
-              <button>Save</button>
-              <button>Cancel</button>
+              <Button type="button">Save</Button>
+              <Button type="button">Cancel</Button>
             </Col>
             <Col xs={12}>
-              <input type="text" value="lol" readOnly />
-              <textarea defaultValue="aaa"></textarea>
+              <FormControl type="text" placeholder="Task name" />
+              <FormControl componentClass="textarea" placeholder="Task description" />
             </Col>
           </Row>
         </Col>
