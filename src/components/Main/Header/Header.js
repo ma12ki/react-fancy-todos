@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 import MainTitle from '../../common/MainTitle';
-import SearchForm from './SearchForm';
+import SearchFormContainer from './SearchFormContainer';
 
 class Header extends Component {
   render() {
@@ -12,7 +12,7 @@ class Header extends Component {
           <MainTitle>To-Do List</MainTitle>
         </Col>
         <Col xs={12} sm={6} className="Header-align-right">
-          <SearchForm />
+          <SearchFormContainer />
         </Col>
       </Row>
     );

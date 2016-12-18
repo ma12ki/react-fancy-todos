@@ -4,6 +4,12 @@ import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import './CategoryList.css';
 
 class CategoryList extends Component {
+  static get contextTypes() {
+    return {
+      router: React.PropTypes.object
+    };
+  }
+
   render() {
     const items = this.props.items;
     const renderedItems = items.map((item) => {
@@ -18,6 +24,8 @@ class CategoryList extends Component {
 
       return <ListGroupItem href="#" key={item.id}>{item.name}</ListGroupItem>;
     });
+
+    console.log(this.context);
 
     return (
       <ListGroup>

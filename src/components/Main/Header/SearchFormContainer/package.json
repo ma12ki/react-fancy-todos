@@ -1,0 +1,6 @@
+{
+  "name": "SearchFormContainer",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./SearchFormContainer.js"
+}
