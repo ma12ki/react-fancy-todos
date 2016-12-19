@@ -3,7 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 
 import CategoryAdd from './CategoryAdd';
 import CategoryList from './CategoryList';
-import TaskAdd from './TaskAdd';
+import TaskAddContainer from '../../../containers/TaskAddContainer';
 import TaskList from './TaskList';
 
 const categories = [
@@ -36,7 +36,7 @@ class Content extends Component {
         <Col xs={12} sm={8}>
           <Row>
             <Col xs={12}>
-              <TaskAdd />
+              <TaskAddContainer />
             </Col>
             <Col xs={12}>
               <TaskList />

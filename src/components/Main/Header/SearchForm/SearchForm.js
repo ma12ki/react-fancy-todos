@@ -10,7 +10,7 @@ class SearchForm extends Component {
 
   static get propTypes() {
     return {
-      showActive: React.PropTypes.bool.isRequired,
+      showDone: React.PropTypes.bool.isRequired,
       searchString: React.PropTypes.string.isRequired,
       onChanges: React.PropTypes.func.isRequired
     };
@@ -18,7 +18,7 @@ class SearchForm extends Component {
 
   handleChange() {
     this.props.onChanges({
-      showActive: this._getInputValue(this.showActiveInput),
+      showDone: this._getInputValue(this.showDoneInput),
       searchString: this._getInputValue(this.searchStringInput)
     });
   }
@@ -35,17 +35,17 @@ class SearchForm extends Component {
   }
 
   render() {
-    const { showActive, searchString } = this.props;
+    const { showDone, searchString } = this.props;
 
     return (
       <Form inline className="pull-right">
         <FormGroup>
           <Checkbox
             inline
-            inputRef={(input) => this.showActiveInput = input}
-            checked={showActive}
+            inputRef={(input) => this.showDoneInput = input}
+            checked={showDone}
             onChange={this.handleChange}>
-              Show active
+              Show done
           </Checkbox>
           {' '}
           <FormControl

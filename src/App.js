@@ -6,7 +6,15 @@ import './App.css';
 
 import Routes from './routes';
 
+import mocks from './data/mocks';
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    mocks.init();
+  }
+
   render() {
     return (
       <Grid>

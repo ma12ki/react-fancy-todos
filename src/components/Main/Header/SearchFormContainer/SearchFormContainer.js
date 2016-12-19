@@ -8,7 +8,7 @@ class SearchFormContainer extends Component {
     super(props);
 
     this.state = {
-      showActive: true,
+      showDone: true,
       searchString: ''
     };
 
@@ -26,7 +26,7 @@ class SearchFormContainer extends Component {
 
   render() {
     return (
-      <SearchForm showActive={this.state.showActive} searchString={this.state.searchString} onChanges={this.handleChanges} />
+      <SearchForm showDone={this.state.showDone} searchString={this.state.searchString} onChanges={this.handleChanges} />
     );
   }
 }
