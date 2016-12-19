@@ -35,13 +35,15 @@ class SearchForm extends Component {
   }
 
   render() {
+    const { showActive, searchString } = this.props;
+
     return (
       <Form inline className="pull-right">
         <FormGroup>
           <Checkbox
             inline
             inputRef={(input) => this.showActiveInput = input}
-            checked={this.props.showActive}
+            checked={showActive}
             onChange={this.handleChange}>
               Show active
           </Checkbox>
@@ -50,7 +52,7 @@ class SearchForm extends Component {
             inputRef={(input) => this.searchStringInput = input}
             type="text"
             placeholder="Search"
-            value={this.props.searchString}
+            value={searchString}
             onChange={this.handleChange} />
         </FormGroup>
       </Form>

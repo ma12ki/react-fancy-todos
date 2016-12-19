@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import routerHelper from '../../../../utils/routerHelper';
 import SearchForm from '../SearchForm';
 
 class SearchFormContainer extends Component {
@@ -14,7 +16,12 @@ class SearchFormContainer extends Component {
   }
 
   handleChanges(changes) {
-      this.setState({...changes});
+    this._updateQueryParams(changes);
+    this.setState({...changes});
+  }
+
+  _updateQueryParams(params) {
+    routerHelper.mergeQueryParams(params);
   }
 
   render() {
