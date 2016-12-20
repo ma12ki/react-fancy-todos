@@ -9,6 +9,12 @@ const Actions = {
       name,
       categoryId: CategoryStore.getState().selectedCategory
     });
+  },
+  selectTodo(id) {
+    TodoDispatcher.dispatch({
+      type: TodoActionTypes.SELECT_TODO,
+      id
+    });
   }
 };
 

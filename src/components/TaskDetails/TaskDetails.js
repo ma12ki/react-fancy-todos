@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 
-import Header from './Header';
+import HeaderContainer from './Header/HeaderContainer';
 import Content from './Content';
 
 class TaskDetails extends Component {
   render() {
-
     return (
       <div>
-        <Header />
+        <HeaderContainer />
         <Content />
       </div>
     );

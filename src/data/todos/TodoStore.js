@@ -19,6 +19,7 @@ class TodoStore extends ReduceStore {
         showDone: queryParams.showDone,
         searchString: queryParams.searchString
       },
+      selectedTodoId: null,
       todos: Immutable([])
     };
   }
@@ -28,7 +29,12 @@ class TodoStore extends ReduceStore {
       case TodoActionTypes.ADD_TODO:
         return {
           ...state,
-          todos: [...state.todos, TodoDAO.create(action.name, action.categoryId)]
+          todos: [...state.todos, TodoDAO.create(action.name, action.categoryId)].sort((a, b) => a - b).reverse()
+        };
+      case TodoActionTypes.SELECT_TODO:
+        return {
+          ...state,
+          selectedTodoId: action.id
         };
       default:
         return state;

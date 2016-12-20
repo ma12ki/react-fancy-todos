@@ -1,14 +1,20 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 import MainTitle from '../../common/MainTitle';
 
-class Header extends Component {
+class Header extends PureComponent {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+    const { title } = this.props;
+
     return (
       <Row>
         <Col xs={12}>
-          <MainTitle>Some task</MainTitle>
+          <MainTitle>{title}</MainTitle>
         </Col>
       </Row>
     );
