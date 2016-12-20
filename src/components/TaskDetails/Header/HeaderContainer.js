@@ -2,21 +2,17 @@ import React, { Component } from 'react';
 import { Container } from 'flux/utils';
 
 import Header from './Header';
-import TodoStore from '../../../data/todos/TodoStore';
+
+import TodoToEditStore from '../../../data/todoToEdit/TodoToEditStore';
 
 class HeaderContainer extends Component {
   static getStores() {
-    return [TodoStore];
+    return [TodoToEditStore];
   }
 
-  static calculateState(prevState) {
-    const storeState = TodoStore.getState();
-    const selectedTodo = storeState.todos.find((todo) => {
-      return todo.id == storeState.selectedTodoId;
-    });
-
+  static calculateState() {
     return {
-      selectedTodo: selectedTodo
+      selectedTodo: TodoToEditStore.getState().todo
     };
   }
 

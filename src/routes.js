@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route } from 'react-router';
 
-import TodoActions from './data/todos/TodoActions';
+import TodoToEditActions from './data/todoToEdit/TodoToEditActions';
 
 import Main from './components/Main';
 import TaskDetails from './components/TaskDetails';
@@ -18,7 +18,7 @@ const Routes = (props) => (
 function handleTaskDetailsEnter(nextState) {
   const { id } = nextState.params;
 
-  TodoActions.selectTodo(id);
+  TodoToEditActions.setTodo(id);
 }
 
 export default Routes;

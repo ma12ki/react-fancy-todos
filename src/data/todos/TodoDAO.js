@@ -1,4 +1,5 @@
 import Counter from '../../utils/counter';
+import TodoStore from './TodoStore';
 
 const todoCounter = new Counter();
 
@@ -12,6 +13,13 @@ const create = (name, categoryId) => {
   };
 };
 
+const getById = (id) => {
+  return TodoStore.getState().todos.find((todo) => {
+    return todo.id == id;
+  });
+};
+
 export default {
-  create
+  create,
+  getById
 };
