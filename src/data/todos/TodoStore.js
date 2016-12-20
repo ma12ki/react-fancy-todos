@@ -29,7 +29,7 @@ class TodoStore extends ReduceStore {
       case TodoActionTypes.ADD_TODO:
         return {
           ...state,
-          todos: [...state.todos, TodoDAO.create(action.name, action.categoryId)].sort((a, b) => a - b).reverse()
+          todos: [...state.todos, TodoDAO.create(action.name, action.categoryId)].sort((a, b) => a.id - b.id).reverse()
         };
       case TodoActionTypes.SELECT_TODO:
         return {
