@@ -24,8 +24,12 @@ class CategoryItem extends PureComponent {
   }
 
   render() {
-    const { id, active, hasSubcategories, children } = this.props;
-    const expandButton = hasSubcategories ? <Button><FontAwesome name="angle-right" /></Button> : null;
+    const { id, active, collapsed, hasSubcategories, children } = this.props;
+    let expandButton;
+    if (hasSubcategories) {
+      const arrow = collapsed ? <FontAwesome name="angle-right" /> : <FontAwesome name="angle-down" />;
+      expandButton = <Button onClick={(event) => { event.preventDefault(); event.stopPropagation(); this.handleToggleExpand(id); }}>{arrow}</Button>;
+    }
 
     return (
       <ListGroupItem

@@ -14,14 +14,23 @@ class CategoryList extends PureComponent {
         <CategoryItem
           id={item.id}
           active={item.id === this.props.selectedCategoryId}
+          collapsed={item.collapsed}
           hasSubcategories={hasSubcategories}
           onSelect={this.props.onSelect}
-          onDelete={this.props.onDelete}>
+          onDelete={this.props.onDelete}
+          onToggleExpand={this.props.onToggleExpand}>
           {item.name}
         </CategoryItem>
       );
 
-      const subcategoryList = hasSubcategories ? <CategoryList items={item.children} selectedCategoryId={this.props.selectedCategoryId} onSelect={this.props.onSelect} onDelete={this.props.onDelete} /> : null;
+      const subcategoryList = hasSubcategories ? (
+        <CategoryList
+          className={item.collapsed ? 'collapsed' : ''}
+          items={item.children}
+          selectedCategoryId={this.props.selectedCategoryId}
+          onSelect={this.props.onSelect}
+          onDelete={this.props.onDelete}
+          onToggleExpand={this.props.onToggleExpand} />) : null;
 
       return (
         <div key={item.id}>
@@ -32,7 +41,7 @@ class CategoryList extends PureComponent {
     });
 
     return (
-      <ListGroup>
+      <ListGroup className={this.props.className}>
         {renderedItems}
       </ListGroup>
     );

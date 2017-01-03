@@ -20,6 +20,12 @@ const Actions = {
       type: CategoryActionTypes.SELECT_CATEGORY,
       id
     });
+  },
+  toggleExpandCategory(id) {
+    CategoryDispatcher.dispatch({
+      type: CategoryActionTypes.TOGGLE_EXPAND_CATEGORY,
+      id
+    });
   }
 };
 

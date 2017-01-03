@@ -63,6 +63,16 @@ class CategoryStore extends ReduceStore {
           ...state,
           selectedCategoryId: action.id
         };
+      case CategoryActionTypes.TOGGLE_EXPAND_CATEGORY:
+        return {
+          ...state,
+          categories: state.categories.map((category) => {
+            if (category.id === action.id) {
+              category.collapsed = !category.collapsed;
+            }
+            return category;
+          })
+        };
       default:
         return state;
     }

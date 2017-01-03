@@ -15,7 +15,8 @@ class CategoryListContainer extends Component {
       items: getNestedCategories(),
       selectedCategoryId: CategoryStore.getState().selectedCategoryId,
       onSelect: CategoryActions.selectCategory,
-      onDelete: CategoryActions.deleteCategory
+      onDelete: CategoryActions.deleteCategory,
+      onToggleExpand: CategoryActions.toggleExpandCategory
     };
   }
 
@@ -24,7 +25,8 @@ class CategoryListContainer extends Component {
       items={this.state.items}
       selectedCategoryId={this.state.selectedCategoryId}
       onSelect={this.state.onSelect}
-      onDelete={this.state.onDelete} />);
+      onDelete={this.state.onDelete}
+      onToggleExpand={this.state.onToggleExpand} />);
   }
 }
 
