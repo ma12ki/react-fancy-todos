@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import routerHelper from '../../../../utils/routerHelper';
-import SearchForm from '../SearchForm';
+import routerHelper from '../../../utils/routerHelper';
+import SearchForm from './SearchForm';
 
 class SearchFormContainer extends Component {
   constructor(props) {

@@ -2,5 +2,5 @@
   "name": "TaskAdd",
   "version": "0.0.0",
   "private": true,
-  "main": "./TaskAdd.js"
+  "main": "./TaskAddContainer.js"
 }

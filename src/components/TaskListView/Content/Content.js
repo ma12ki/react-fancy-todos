@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
-import CategoryAdd from './CategoryAdd';
-import CategoryList from './CategoryList';
-import TaskAddContainer from '../../../containers/TaskAddContainer';
-import TaskList from './TaskList';
+import CategoryAdd from '../CategoryAdd';
+import CategoryList from '../CategoryList';
+import TaskAddContainer from '../TaskAdd';
+import TaskList from '../TaskList';
 
 const categories = [
   {name: 'Category 1', id: 1},

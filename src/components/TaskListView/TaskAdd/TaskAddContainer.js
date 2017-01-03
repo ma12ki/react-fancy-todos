@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from 'flux/utils';
 
-import TaskAdd from '../components/TaskListView/Content/TaskAdd';
-import TodoStore from '../data/todos/TodoStore';
-import TodoActions from '../data/todos/TodoActions';
+import TaskAdd from './TaskAdd';
+import TodoStore from '../../../data/todos/TodoStore';
+import TodoActions from '../../../data/todos/TodoActions';
 
 class TaskAddContainer extends Component {
   static getStores() {

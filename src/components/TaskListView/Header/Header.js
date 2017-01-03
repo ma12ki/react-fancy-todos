@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 import MainTitle from '../../common/MainTitle';
-import SearchFormContainer from './SearchFormContainer';
+import SearchFormContainer from '../SearchForm';
 
 class Header extends Component {
   render() {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, FormControl, Button } from 'react-bootstrap';
 
-import CategoryList from './CategoryList';
+import CategoryList from '../CategoryList';
 
 const categories = [
   {name: 'Category 1', id: 1},
