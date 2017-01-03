@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 
 import CategoryAddContainer from '../CategoryAdd';
 import CategoryListContainer from '../CategoryList';
+import CategoryModalContainer from '../CategoryModal';
 import TaskAddContainer from '../TaskAdd';
 import TaskListContainer from '../TaskList';
 
@@ -16,7 +17,8 @@ class Content extends Component {
               <CategoryAddContainer />
             </Col>
             <Col xs={12}>
-              <CategoryListContainer lol={'mao'} />
+              <CategoryListContainer />
+              <CategoryModalContainer />
             </Col>
           </Row>
         </Col>

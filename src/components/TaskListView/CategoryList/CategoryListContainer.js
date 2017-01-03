@@ -4,6 +4,7 @@ import { Container } from 'flux/utils';
 import CategoryList from './CategoryList';
 import CategoryStore from '../../../data/categories/CategoryStore';
 import CategoryActions from '../../../data/categories/CategoryActions';
+import CategoryModalActions from '../../../data/categoryModal/CategoryModalActions';
 
 class CategoryListContainer extends Component {
   static getStores() {
@@ -16,17 +17,23 @@ class CategoryListContainer extends Component {
       selectedCategoryId: CategoryStore.getState().selectedCategoryId,
       onSelect: CategoryActions.selectCategory,
       onDelete: CategoryActions.deleteCategory,
-      onToggleExpand: CategoryActions.toggleExpandCategory
+      onToggleExpand: CategoryActions.toggleExpandCategory,
+      onAddSubcategory: addSubcategory,
+      onEdit: editCategory
     };
   }
 
   render() {
-    return (<CategoryList
-      items={this.state.items}
-      selectedCategoryId={this.state.selectedCategoryId}
-      onSelect={this.state.onSelect}
-      onDelete={this.state.onDelete}
-      onToggleExpand={this.state.onToggleExpand} />);
+    return (
+      <CategoryList
+        items={this.state.items}
+        selectedCategoryId={this.state.selectedCategoryId}
+        onSelect={this.state.onSelect}
+        onDelete={this.state.onDelete}
+        onToggleExpand={this.state.onToggleExpand}
+        onAddSubcategory={this.state.onAddSubcategory}
+        onEdit={this.state.onEdit} />
+    );
   }
 }
 
@@ -37,6 +44,16 @@ function getNestedCategories(parentId) {
       children: getNestedCategories(category.id)
     };
   });
+}
+
+function addSubcategory(parentId) {
+  CategoryModalActions.open({
+    parentId
+  });
+}
+
+function editCategory(category) {
+  CategoryModalActions.open(category);
 }
 
 export default Container.create(CategoryListContainer);

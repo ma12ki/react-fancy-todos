@@ -9,6 +9,12 @@ const Actions = {
       parentId
     });
   },
+  updateCategory(category) {
+    CategoryDispatcher.dispatch({
+      type: CategoryActionTypes.UPDATE_CATEGORY,
+      category
+    });
+  },
   deleteCategory(id) {
     CategoryDispatcher.dispatch({
       type: CategoryActionTypes.DELETE_CATEGORY,

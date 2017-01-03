@@ -32,6 +32,19 @@ class CategoryStore extends ReduceStore {
           ...state,
           categories: [...state.categories, CategoryDAO.create(action.name, action.parentId)].sort((a, b) => a.id - b.id).reverse()
         };
+      case CategoryActionTypes.UPDATE_CATEGORY:
+        return {
+          ...state,
+          categories: state.categories.map((category) => {
+            if (category.id === action.category.id) {
+              category = {
+                ...category,
+                ...action.category
+              }
+            }
+            return category;
+          })
+        };
       case CategoryActionTypes.DELETE_CATEGORY:
         const categoriesToDelete = state.categories.reduce((ids, category) => {
           if (ids.includes(category.parentId)) {
