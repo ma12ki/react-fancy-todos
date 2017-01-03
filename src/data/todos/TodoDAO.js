@@ -19,7 +19,14 @@ const getById = (id) => {
   });
 };
 
+const getByCategoryId = (categoryId) => {
+  return TodoStore.getState().todos.filter((todo) => {
+    return todo.categoryId === categoryId;
+  });
+};
+
 export default {
   create,
-  getById
+  getById,
+  getByCategoryId
 };

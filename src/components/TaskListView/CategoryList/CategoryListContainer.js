@@ -13,7 +13,7 @@ class CategoryListContainer extends Component {
   static calculateState(prevState) {
     return {
       items: getNestedCategories(),
-      selectedCategoryId: CategoryStore.getState().selectedCategory,
+      selectedCategoryId: CategoryStore.getState().selectedCategoryId,
       onSelectCategory: CategoryActions.selectCategory
     };
   }

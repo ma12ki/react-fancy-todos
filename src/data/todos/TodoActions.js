@@ -7,7 +7,14 @@ const Actions = {
     TodoDispatcher.dispatch({
       type: TodoActionTypes.ADD_TODO,
       name,
-      categoryId: categoryId || CategoryStore.getState().selectedCategory
+      categoryId: categoryId || CategoryStore.getState().selectedCategoryId
+    });
+  },
+  setCompleted(id, completed) {
+    TodoDispatcher.dispatch({
+      type: TodoActionTypes.SET_COMPLETED,
+      id,
+      completed
     });
   },
   selectTodo(id) {

@@ -33,8 +33,6 @@ class CategoryList extends Component {
       return <ListGroupItem active={item.id === this.props.selectedCategoryId} href="#" key={item.id} onClick={(event) => { event.preventDefault(); this.handleSelect(item.id); }}>{item.name}</ListGroupItem>;
     });
 
-    console.log(this.context);
-
     return (
       <ListGroup>
         {renderedItems}

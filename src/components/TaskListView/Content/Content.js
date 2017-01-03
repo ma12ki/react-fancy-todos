@@ -4,7 +4,7 @@ import { Row, Col } from 'react-bootstrap';
 import CategoryAddContainer from '../CategoryAdd';
 import CategoryListContainer from '../CategoryList';
 import TaskAddContainer from '../TaskAdd';
-import TaskList from '../TaskList';
+import TaskListContainer from '../TaskList';
 
 class Content extends Component {
   render() {
@@ -26,7 +26,7 @@ class Content extends Component {
               <TaskAddContainer />
             </Col>
             <Col xs={12}>
-              <TaskList />
+              <TaskListContainer />
             </Col>
           </Row>
         </Col>

@@ -24,6 +24,10 @@ class TodoStore extends ReduceStore {
     };
   }
 
+  getByCategoryId(categoryId) {
+    return TodoDAO.getByCategoryId(categoryId);
+  }
+
   reduce(state, action) {
     switch (action.type) {
       case TodoActionTypes.ADD_TODO:
@@ -36,6 +40,16 @@ class TodoStore extends ReduceStore {
           ...state,
           selectedTodoId: action.id
         };
+      case TodoActionTypes.SET_COMPLETED:
+        return {
+          ...state,
+          todos: state.todos.map((todo) => {
+            if (todo.id === action.id) {
+              todo.completed = action.completed || false;
+            }
+            return todo;
+          })
+        }
       default:
         return state;
     }

@@ -15,7 +15,7 @@ class CategoryStore extends ReduceStore {
     const queryParams = routerHelper.getCurrentLocation().query;
 
     return {
-      selectedCategory: queryParams.selectedCategory,
+      selectedCategoryId: queryParams.selectedCategoryId,
       categories: Immutable([])
     };
   }
@@ -33,14 +33,12 @@ class CategoryStore extends ReduceStore {
         };
       case CategoryActionTypes.SELECT_CATEGORY:
         routerHelper.mergeQueryParams({
-          selectedCategory: action.id
+          selectedCategoryId: action.id
         });
-
-        console.log(state);
 
         return {
           ...state,
-          selectedCategory: action.id
+          selectedCategoryId: action.id
         };
       default:
         return state;
