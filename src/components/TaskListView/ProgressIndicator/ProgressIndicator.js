@@ -1,13 +1,13 @@
 import React from 'react';
 import { Row, Col, ProgressBar } from 'react-bootstrap';
 
-const ProgressIndicator = () => {
-    const now = 60;
+const ProgressIndicator = (props) => {
+    const { progress } = props;
 
     return (
       <Row>
         <Col xs={12}>
-          <ProgressBar now={now} label={`${now}%`} />
+          <ProgressBar now={progress} label={`${progress}%`} />
         </Col>
       </Row>
     );

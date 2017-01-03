@@ -16,11 +16,11 @@ class TaskItem extends Component {
   }
 
   render() {
-    const { name } = this.props.item;
+    const { name, completed } = this.props.item;
 
     return (
       <ListGroupItem>
-        <Checkbox inline onChange={this.handleChange}/>
+        <Checkbox inline onChange={this.handleChange} checked={completed} />
           {name}
         <Button>
           <FontAwesome name='edit' />

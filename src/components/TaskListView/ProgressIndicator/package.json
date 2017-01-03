@@ -2,5 +2,5 @@
   "name": "ProgressIndicator",
   "version": "0.0.0",
   "private": true,
-  "main": "./ProgressIndicator.js"
+  "main": "./ProgressIndicatorContainer.js"
 }
