@@ -5,33 +5,25 @@ class SearchForm extends Component {
   constructor(props) {
     super(props);
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleSearchByDoneChange = this.handleSearchByDoneChange.bind(this);
+    this.handleSearchByNameChange = this.handleSearchByNameChange.bind(this);
   }
 
   static get propTypes() {
     return {
       showDone: React.PropTypes.bool.isRequired,
       searchString: React.PropTypes.string.isRequired,
-      onChanges: React.PropTypes.func.isRequired
+      onSearchByName: React.PropTypes.func.isRequired,
+      onSearchByDone: React.PropTypes.func.isRequired
     };
   }
 
-  handleChange() {
-    this.props.onChanges({
-      showDone: this._getInputValue(this.showDoneInput),
-      searchString: this._getInputValue(this.searchStringInput)
-    });
+  handleSearchByDoneChange() {
+    this.props.onSearchByDone(this.showDoneInput.checked);
   }
 
-  _getInputValue(input) {
-    switch (input.type) {
-      case 'text':
-        return input.value;
-      case 'checkbox':
-        return input.checked;
-      default:
-        throw new Error(`Unsupported input type: ${input.type}`);
-    }
+  handleSearchByNameChange() {
+    this.props.onSearchByName(this.searchStringInput.value);
   }
 
   render() {
@@ -44,7 +36,7 @@ class SearchForm extends Component {
             inline
             inputRef={(input) => this.showDoneInput = input}
             checked={showDone}
-            onChange={this.handleChange}>
+            onChange={this.handleSearchByDoneChange}>
               Show done
           </Checkbox>
           {' '}
@@ -53,7 +45,7 @@ class SearchForm extends Component {
             type="text"
             placeholder="Search"
             value={searchString}
-            onChange={this.handleChange} />
+            onChange={this.handleSearchByNameChange} />
         </FormGroup>
       </Form>
     );

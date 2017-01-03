@@ -17,7 +17,6 @@ class CategoryAddContainer extends Component {
   }
 
   render() {
-    console.log(this.state);
     return <CategoryAdd onAddCategory={this.state.onAddCategory} />;
   }
 }

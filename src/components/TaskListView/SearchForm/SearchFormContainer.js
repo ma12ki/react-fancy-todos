@@ -1,34 +1,32 @@
 import React, { Component } from 'react';
+import { Container } from 'flux/utils';
 
 import routerHelper from '../../../utils/routerHelper';
 import SearchForm from './SearchForm';
+import TodoSearchStore from '../../../data/todoSearch/TodoSearchStore';
+import TodoSearchActions from '../../../data/todoSearch/TodoSearchActions';
 
 class SearchFormContainer extends Component {
-  constructor(props) {
-    super(props);
+  static getStores() {
+    return [TodoSearchStore];
+  }
 
-    this.state = {
-      showDone: true,
-      searchString: ''
+  static calculateState(prevState) {
+    const { showDone, searchString } = TodoSearchStore.getState().searchParams;
+
+    return {
+      showDone,
+      searchString,
+      onSearchByName: TodoSearchActions.searchByName,
+      onSearchByDone: TodoSearchActions.searchByDone
     };
-
-    this.handleChanges = this.handleChanges.bind(this);
-  }
-
-  handleChanges(changes) {
-    this._updateQueryParams(changes);
-    this.setState({...changes});
-  }
-
-  _updateQueryParams(params) {
-    routerHelper.mergeQueryParams(params);
   }
 
   render() {
     return (
-      <SearchForm showDone={this.state.showDone} searchString={this.state.searchString} onChanges={this.handleChanges} />
+      <SearchForm showDone={this.state.showDone} searchString={this.state.searchString} onSearchByName={this.state.onSearchByName} onSearchByDone={this.state.onSearchByDone} />
     );
   }
 }
 
-export default SearchFormContainer;
+export default Container.create(SearchFormContainer);

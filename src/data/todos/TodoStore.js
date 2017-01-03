@@ -1,7 +1,6 @@
 import Immutable from 'seamless-immutable';
 import { ReduceStore } from 'flux/utils';
 
-import routerHelper from '../../utils/routerHelper';
 import TodoActionTypes from './TodoActionTypes';
 import TodoDispatcher from './TodoDispatcher';
 import TodoDAO from './TodoDAO';
@@ -12,13 +11,7 @@ class TodoStore extends ReduceStore {
   }
 
   getInitialState() {
-    const queryParams = routerHelper.getCurrentLocation().query;
-
     return {
-      searchParams: {
-        showDone: queryParams.showDone,
-        searchString: queryParams.searchString
-      },
       selectedTodoId: null,
       todos: Immutable([])
     };
