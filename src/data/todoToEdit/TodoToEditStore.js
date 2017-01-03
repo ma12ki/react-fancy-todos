@@ -19,10 +19,17 @@ class TodoToEditStore extends ReduceStore {
   reduce(state, action) {
     switch (action.type) {
       case TodoToEditActionTypes.SET_TODO:
-      case TodoToEditActionTypes.EDIT_TODO:
         return {
           ...state,
           todo: action.todo
+        };
+      case TodoToEditActionTypes.UPDATE_TODO:
+        return {
+          ...state,
+          todo: {
+            ...state.todo,
+            ...action.todo
+          }
         };
       case TodoToEditActionTypes.PERSIST_TODO:
         TodoActions.updateTodo(state.todo);

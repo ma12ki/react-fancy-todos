@@ -11,6 +11,12 @@ const Actions = {
       todo
     });
   },
+  updateTodo(todo) {
+    TodoToEditDispatcher.dispatch({
+      type: TodoToEditActionTypes.UPDATE_TODO,
+      todo
+    });
+  },
   persistTodo() {
     TodoToEditDispatcher.dispatch({
       type: TodoToEditActionTypes.PERSIST_TODO
