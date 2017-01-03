@@ -3,11 +3,11 @@ import TodoDispatcher from './TodoDispatcher';
 import CategoryStore from '../categories/CategoryStore';
 
 const Actions = {
-  addTodo(name) {
+  addTodo(name, categoryId) {
     TodoDispatcher.dispatch({
       type: TodoActionTypes.ADD_TODO,
       name,
-      categoryId: CategoryStore.getState().selectedCategory
+      categoryId: categoryId || CategoryStore.getState().selectedCategory
     });
   },
   selectTodo(id) {

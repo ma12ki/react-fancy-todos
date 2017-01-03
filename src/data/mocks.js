@@ -5,8 +5,9 @@ import TodoStore from './todos/TodoStore';
 
 const init = () => {
   CategoryActions.addCategory('Category 1');
-  CategoryActions.addCategory('Category 2');
-  CategoryActions.addCategory('Category 3');
+  const category1 = CategoryStore.getState().categories[0];
+  CategoryActions.addCategory('Category 2', category1.id);
+  CategoryActions.addCategory('Category 3', category1.id);
   CategoryActions.addCategory('Category 4');
   let categories = CategoryStore.getState().categories;
 

@@ -13,7 +13,7 @@ class CategoryList extends Component {
   render() {
     const items = this.props.items;
     const renderedItems = items.map((item) => {
-      if (item.children) {
+      if (item.children.length > 0) {
         return (
           <div key={item.id}>
             <ListGroupItem href="#">{item.name}</ListGroupItem>

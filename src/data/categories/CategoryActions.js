@@ -2,10 +2,11 @@ import CategoryActionTypes from './CategoryActionTypes';
 import CategoryDispatcher from './CategoryDispatcher';
 
 const Actions = {
-  addCategory(name) {
+  addCategory(name, parentId) {
     CategoryDispatcher.dispatch({
       type: CategoryActionTypes.ADD_CATEGORY,
-      name
+      name,
+      parentId
     });
   },
   selectCategory(id) {

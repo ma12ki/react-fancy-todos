@@ -20,12 +20,16 @@ class CategoryStore extends ReduceStore {
     };
   }
 
+  getListByParentId(parentId) {
+    return CategoryDAO.getListByParentId(parentId);
+  }
+
   reduce(state, action) {
     switch (action.type) {
       case CategoryActionTypes.ADD_CATEGORY:
         return {
           ...state,
-          categories: [...state.categories, CategoryDAO.create(action.name)].sort((a, b) => a.id - b.id).reverse()
+          categories: [...state.categories, CategoryDAO.create(action.name, action.parentId)].sort((a, b) => a.id - b.id).reverse()
         };
       case CategoryActionTypes.SELECT_CATEGORY:
         routerHelper.mergeQueryParams({
