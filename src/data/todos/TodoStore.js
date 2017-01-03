@@ -33,6 +33,16 @@ class TodoStore extends ReduceStore {
           ...state,
           selectedTodoId: action.id
         };
+      case TodoActionTypes.UPDATE_TODO:
+        return {
+          ...state,
+          todos: state.todos.map((todo) => {
+            if (todo.id === action.todo.id) {
+              todo = action.todo;
+            }
+            return todo;
+          })
+        };
       case TodoActionTypes.SET_COMPLETED:
         return {
           ...state,

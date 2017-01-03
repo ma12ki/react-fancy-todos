@@ -10,6 +10,17 @@ const Actions = {
       type: TodoToEditActionTypes.SET_TODO,
       todo
     });
+  },
+  persistTodo() {
+    TodoToEditDispatcher.dispatch({
+      type: TodoToEditActionTypes.PERSIST_TODO
+    });
+  },
+  moveToCategory(categoryId) {
+    TodoToEditDispatcher.dispatch({
+      type: TodoToEditActionTypes.MOVE_TO_CATEGORY,
+      categoryId
+    })
   }
 };
 

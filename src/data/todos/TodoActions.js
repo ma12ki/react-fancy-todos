@@ -10,6 +10,12 @@ const Actions = {
       categoryId: categoryId || CategoryStore.getState().selectedCategoryId
     });
   },
+  updateTodo(todo) {
+    TodoDispatcher.dispatch({
+      type: TodoActionTypes.UPDATE_TODO,
+      todo
+    });
+  },
   setCompleted(id, completed) {
     TodoDispatcher.dispatch({
       type: TodoActionTypes.SET_COMPLETED,

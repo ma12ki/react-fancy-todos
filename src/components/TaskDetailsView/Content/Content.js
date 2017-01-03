@@ -1,20 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, FormControl, Button } from 'react-bootstrap';
 
-import CategoryList from '../CategoryList';
-
-const categories = [
-  {name: 'Category 1', id: 1},
-  {name: 'Category 2', id: 2},
-  {name: 'Category 3', id: 3, children: [
-    {name: 'Category 3_1', id: 4},
-    {name: 'Category 3_2', id: 5},
-    {name: 'Category 3_3', id: 6, children: [
-      {name: 'Category 3_3_1', id: 7},
-      {name: 'Category 3_3_2', id: 8}
-    ]}
-  ]}
-];
+import CategoryListContainer from '../CategoryList';
 
 const tasks = [
   {name: 'Task 1', description: 'Some task', id: 1, categoryId: 1},
@@ -32,7 +19,7 @@ class Content extends Component {
         <Col xs={12} sm={4}>
           <Row>
             <Col xs={12}>
-              <CategoryList items={categories} />
+              <CategoryListContainer />
             </Col>
           </Row>
         </Col>

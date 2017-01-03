@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import { ListGroupItem, Checkbox, Button } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome'
 
@@ -16,14 +17,14 @@ class TaskItem extends Component {
   }
 
   render() {
-    const { name, completed } = this.props.item;
+    const { id, name, completed } = this.props.item;
 
     return (
       <ListGroupItem>
         <Checkbox inline onChange={this.handleChange} checked={completed} />
           {name}
         <Button>
-          <FontAwesome name='edit' />
+          <Link to={`/task/${id}`}><FontAwesome name='edit' /></Link>
         </Button>
       </ListGroupItem>
     );
