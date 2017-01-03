@@ -3,15 +3,15 @@ import { Router, Route } from 'react-router';
 
 import TodoToEditActions from './data/todoToEdit/TodoToEditActions';
 
-import Main from './components/Main';
-import TaskDetails from './components/TaskDetails';
-import NotFound from './components/NotFound';
+import TaskListView from './components/TaskListView';
+import TaskDetailsView from './components/TaskDetailsView';
+import NotFoundView from './components/NotFoundView';
 
 const Routes = (props) => (
   <Router {...props}>
-    <Route path="/" component={Main} />
-    <Route path="/task/:id" component={TaskDetails} onEnter={handleTaskDetailsEnter} />
-    <Route path="*" component={NotFound} />
+    <Route path="/" component={TaskListView} />
+    <Route path="/task/:id" component={TaskDetailsView} onEnter={handleTaskDetailsEnter} />
+    <Route path="*" component={NotFoundView} />
   </Router>
 );
 

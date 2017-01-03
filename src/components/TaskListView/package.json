@@ -1,0 +1,6 @@
+{
+  "name": "TaskListView",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./TaskListView.js"
+}

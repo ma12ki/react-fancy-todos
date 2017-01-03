@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import HeaderContainer from './Header/HeaderContainer';
 import Content from './Content';
 
-class TaskDetails extends Component {
+class TaskDetailsView extends Component {
   render() {
     return (
       <div>
@@ -14,4 +14,4 @@ class TaskDetails extends Component {
   }
 }
 
-export default TaskDetails;
+export default TaskDetailsView;

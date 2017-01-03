@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 import './style.css';
 
-export default class NotFound extends Component {
+export default class NotFoundView extends Component {
   render() {
     const { className, ...props } = this.props;
     return (
@@ -14,4 +14,4 @@ export default class NotFound extends Component {
       </div>
     );
   }
-}
+};

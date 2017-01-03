@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container } from 'flux/utils';
 
-import TaskAdd from '../components/Main/Content/TaskAdd';
+import TaskAdd from '../components/TaskListView/Content/TaskAdd';
 import TodoStore from '../data/todos/TodoStore';
 import TodoActions from '../data/todos/TodoActions';
 
