@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Container } from 'flux/utils';
 
-import routerHelper from '../../../utils/routerHelper';
 import SearchForm from './SearchForm';
 import TodoSearchStore from '../../../data/todoSearch/TodoSearchStore';
 import TodoSearchActions from '../../../data/todoSearch/TodoSearchActions';

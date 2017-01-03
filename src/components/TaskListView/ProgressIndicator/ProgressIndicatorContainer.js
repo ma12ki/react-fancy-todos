@@ -3,7 +3,6 @@ import { Container } from 'flux/utils';
 
 import ProgressIndicator from './ProgressIndicator';
 import TodoStore from '../../../data/todos/TodoStore';
-import TodoActions from '../../../data/todos/TodoActions';
 
 class ProgressIndicatorContainer extends Component {
   static getStores() {

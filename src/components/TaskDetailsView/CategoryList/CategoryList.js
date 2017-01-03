@@ -5,10 +5,6 @@ import FontAwesome from 'react-fontawesome';
 import './CategoryList.css';
 
 class CategoryList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   static get contextTypes() {
     return {
       router: React.PropTypes.object

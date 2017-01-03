@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, FormControl, Button } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 import CategoryListContainer from '../CategoryList';
 import TaskEditContainer from '../TaskEdit';

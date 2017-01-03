@@ -1,4 +1,3 @@
-import Immutable from 'seamless-immutable';
 import { ReduceStore } from 'flux/utils';
 
 import routerHelper from '../../utils/routerHelper';

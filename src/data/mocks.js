@@ -1,7 +1,6 @@
 import CategoryActions from './categories/CategoryActions';
 import CategoryStore from './categories/CategoryStore';
 import TodoActions from './todos/TodoActions';
-import TodoStore from './todos/TodoStore';
 
 const init = () => {
   CategoryActions.addCategory('Category 1');

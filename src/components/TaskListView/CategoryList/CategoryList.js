@@ -4,10 +4,6 @@ import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import './CategoryList.css';
 
 class CategoryList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   static get contextTypes() {
     return {
       router: React.PropTypes.object

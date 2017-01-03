@@ -17,7 +17,7 @@ class TaskEdit extends PureComponent {
   }
 
   render() {
-    const { id, name, completed, description } = this.props.item;
+    const { name, completed, description } = this.props.item;
 
     return (
       <Row>
