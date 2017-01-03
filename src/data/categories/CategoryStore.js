@@ -36,6 +36,8 @@ class CategoryStore extends ReduceStore {
           selectedCategory: action.id
         });
 
+        console.log(state);
+
         return {
           ...state,
           selectedCategory: action.id

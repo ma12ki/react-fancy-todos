@@ -12,7 +12,6 @@ const create = (name, parentId) => {
 };
 
 const getListByParentId = (parentId) => {
-  console.log(CategoryStore.getState());
   return CategoryStore.getState().categories.filter((category) => {
     return category.parentId === parentId || (!parentId && !category.parentId);
   });

@@ -3,7 +3,7 @@ import { Container } from 'flux/utils';
 
 import CategoryList from './CategoryList';
 import CategoryStore from '../../../data/categories/CategoryStore';
-// import CategoryActions from '../../../data/categories/CategoryActions';
+import CategoryActions from '../../../data/categories/CategoryActions';
 
 class CategoryListContainer extends Component {
   static getStores() {
@@ -12,12 +12,14 @@ class CategoryListContainer extends Component {
 
   static calculateState(prevState) {
     return {
-      items: getNestedCategories()
+      items: getNestedCategories(),
+      selectedCategoryId: CategoryStore.getState().selectedCategory,
+      onSelectCategory: CategoryActions.selectCategory
     };
   }
 
   render() {
-    return <CategoryList items={this.state.items} />;
+    return <CategoryList items={this.state.items} selectedCategoryId={this.state.selectedCategoryId} onSelectCategory={this.state.onSelectCategory} />;
   }
 }
 

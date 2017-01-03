@@ -4,10 +4,18 @@ import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import './CategoryList.css';
 
 class CategoryList extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   static get contextTypes() {
     return {
       router: React.PropTypes.object
     };
+  }
+
+  handleSelect(id) {
+    this.props.onSelectCategory(id);
   }
 
   render() {
@@ -16,13 +24,13 @@ class CategoryList extends Component {
       if (item.children.length > 0) {
         return (
           <div key={item.id}>
-            <ListGroupItem href="#">{item.name}</ListGroupItem>
-            <CategoryList items={item.children} />
+            <ListGroupItem active={item.id === this.props.selectedCategoryId} href="#" onClick={(event) => { event.preventDefault(); this.handleSelect(item.id); }}>{item.name}</ListGroupItem>
+            <CategoryList items={item.children} selectedCategoryId={this.props.selectedCategoryId} onSelectCategory={this.props.onSelectCategory} />
           </div>
         );
       }
 
-      return <ListGroupItem href="#" key={item.id}>{item.name}</ListGroupItem>;
+      return <ListGroupItem active={item.id === this.props.selectedCategoryId} href="#" key={item.id} onClick={(event) => { event.preventDefault(); this.handleSelect(item.id); }}>{item.name}</ListGroupItem>;
     });
 
     console.log(this.context);
