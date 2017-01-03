@@ -43,6 +43,13 @@ class TodoStore extends ReduceStore {
             return todo;
           })
         };
+      case TodoActionTypes.DELETE_TODOS_BY_CATEGORIES:
+        return {
+          ...state,
+          todos: state.todos.filter((todo) => {
+            return !action.ids.includes(todo.categoryId);
+          })
+        };
       case TodoActionTypes.SET_COMPLETED:
         return {
           ...state,

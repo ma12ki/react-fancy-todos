@@ -5,6 +5,7 @@ import routerHelper from '../../utils/routerHelper';
 import CategoryActionTypes from './CategoryActionTypes';
 import CategoryDispatcher from './CategoryDispatcher';
 import CategoryDAO from './CategoryDAO';
+import TodoActions from '../todos/TodoActions';
 
 class CategoryStore extends ReduceStore {
   constructor() {
@@ -30,6 +31,28 @@ class CategoryStore extends ReduceStore {
         return {
           ...state,
           categories: [...state.categories, CategoryDAO.create(action.name, action.parentId)].sort((a, b) => a.id - b.id).reverse()
+        };
+      case CategoryActionTypes.DELETE_CATEGORY:
+        const categoriesToDelete = state.categories.reduce((ids, category) => {
+          if (ids.includes(category.parentId)) {
+            ids.push(category.id);
+          }
+          return ids;
+        }, [action.id]);
+
+        const selectedCategoryId = categoriesToDelete.includes(state.selectedCategoryId) ? null : state.selectedCategoryId;
+        routerHelper.mergeQueryParams({
+          selectedCategoryId
+        });
+
+        TodoActions.deleteTodosByCategories(...categoriesToDelete);
+
+        return {
+          ...state,
+          selectedCategoryId,
+          categories: state.categories.filter((category) => {
+            return !categoriesToDelete.includes(category.id);
+          })
         };
       case CategoryActionTypes.SELECT_CATEGORY:
         routerHelper.mergeQueryParams({

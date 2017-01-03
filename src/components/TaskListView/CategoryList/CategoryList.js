@@ -1,32 +1,34 @@
-import React, { Component } from 'react';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import React, { PureComponent } from 'react';
+import { ListGroup } from 'react-bootstrap';
+
+import CategoryItem from '../CategoryItem';
 
 import './CategoryList.css';
 
-class CategoryList extends Component {
-  static get contextTypes() {
-    return {
-      router: React.PropTypes.object
-    };
-  }
-
-  handleSelect(id) {
-    this.props.onSelectCategory(id);
-  }
-
+class CategoryList extends PureComponent {
   render() {
     const items = this.props.items;
     const renderedItems = items.map((item) => {
-      if (item.children.length > 0) {
-        return (
-          <div key={item.id}>
-            <ListGroupItem active={item.id === this.props.selectedCategoryId} href="#" onClick={(event) => { event.preventDefault(); this.handleSelect(item.id); }}>{item.name}</ListGroupItem>
-            <CategoryList items={item.children} selectedCategoryId={this.props.selectedCategoryId} onSelectCategory={this.props.onSelectCategory} />
-          </div>
-        );
-      }
+      const hasSubcategories = item.children.length > 0;
+      const categoryItem = (
+        <CategoryItem
+          id={item.id}
+          active={item.id === this.props.selectedCategoryId}
+          hasSubcategories={hasSubcategories}
+          onSelect={this.props.onSelect}
+          onDelete={this.props.onDelete}>
+          {item.name}
+        </CategoryItem>
+      );
 
-      return <ListGroupItem active={item.id === this.props.selectedCategoryId} href="#" key={item.id} onClick={(event) => { event.preventDefault(); this.handleSelect(item.id); }}>{item.name}</ListGroupItem>;
+      const subcategoryList = hasSubcategories ? <CategoryList items={item.children} selectedCategoryId={this.props.selectedCategoryId} onSelect={this.props.onSelect} onDelete={this.props.onDelete} /> : null;
+
+      return (
+        <div key={item.id}>
+          {categoryItem}
+          {subcategoryList}
+        </div>
+      );
     });
 
     return (

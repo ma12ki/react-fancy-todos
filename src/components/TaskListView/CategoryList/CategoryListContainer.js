@@ -14,12 +14,17 @@ class CategoryListContainer extends Component {
     return {
       items: getNestedCategories(),
       selectedCategoryId: CategoryStore.getState().selectedCategoryId,
-      onSelectCategory: CategoryActions.selectCategory
+      onSelect: CategoryActions.selectCategory,
+      onDelete: CategoryActions.deleteCategory
     };
   }
 
   render() {
-    return <CategoryList items={this.state.items} selectedCategoryId={this.state.selectedCategoryId} onSelectCategory={this.state.onSelectCategory} />;
+    return (<CategoryList
+      items={this.state.items}
+      selectedCategoryId={this.state.selectedCategoryId}
+      onSelect={this.state.onSelect}
+      onDelete={this.state.onDelete} />);
   }
 }
 

@@ -16,6 +16,12 @@ const Actions = {
       todo
     });
   },
+  deleteTodosByCategories(...ids) {
+    TodoDispatcher.dispatch({
+      type: TodoActionTypes.DELETE_TODOS_BY_CATEGORIES,
+      ids
+    });
+  },
   setCompleted(id, completed) {
     TodoDispatcher.dispatch({
       type: TodoActionTypes.SET_COMPLETED,
