@@ -24,9 +24,11 @@ class ProgressIndicatorContainer extends Component {
       return 0;
     }
 
-    return todos.filter((todo) => {
+    const progress = todos.filter((todo) => {
       return todo.completed;
-    }).length / totalTodos * 100;
+    }).length / totalTodos;
+
+    return Math.trunc(progress * 100 * 100) / 100;
   }
 
   render() {
