@@ -12,8 +12,11 @@ class TaskListContainer extends Component {
   }
 
   static calculateState(prevState, props) {
+    const { items, omittedItemsCount } = TaskListContainer.getFilteredItems(props.categoryId);
+
     return {
-      items: TaskListContainer.getFilteredItems(props.categoryId),
+      items,
+      omittedItemsCount,
       onSetCompleted: TodoActions.setCompleted
     };
   }
@@ -21,14 +24,18 @@ class TaskListContainer extends Component {
   static getFilteredItems(categoryId) {
     const items = TodoStore.getByCategoryId(categoryId);
     const { showDone, searchString } = TodoSearchStore.getState().searchParams;
-
-    return items.filter((item) => {
+    const filteredItems = items.filter((item) => {
       return (showDone ? true : !item.completed) && (searchString ? item.name.match(new RegExp(searchString, 'i')) : true);
     });
+
+    return {
+      items: filteredItems,
+      omittedItemsCount: items.length - filteredItems.length
+    };
   }
 
   render() {
-    return <TaskList items={this.state.items} onSetCompleted={this.state.onSetCompleted} />;
+    return <TaskList items={this.state.items} omittedItemsCount={this.state.omittedItemsCount} onSetCompleted={this.state.onSetCompleted} />;
   }
 }
 
